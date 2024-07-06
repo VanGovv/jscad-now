@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const filename = 'jscad-now.js'
+const filename = '.jscad-now.js'
 const template = fs.readFileSync(path.join(__dirname, 'template.js'), 'utf-8')
 const header = '//this is a generated file, safe to delete it'
 
