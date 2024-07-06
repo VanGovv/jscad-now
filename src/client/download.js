@@ -4,7 +4,7 @@ const serializer = require('@jscad/stl-serializer')
 
 const buttons = (scope) => {
     const labelName = html`<label>name: </label>`
-    const textName = html`<input type="text" value="model">`
+    const textName = html`<input type="text" value="${scope.paramState?.modelName || 'model'}">`
     const button = html`<button>download</button>`
     const hr = html`<hr>`
     const resetCameraButton = html`<button>reset camera</button>`
