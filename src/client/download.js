@@ -4,7 +4,7 @@ const serializer = require('@jscad/stl-serializer')
 
 const buttons = (scope) => {
     const labelName = html`<label>name: </label>`
-    const textName = html`<input type="text" value="model">`
+    const textName = html`<input type="text">`
     const button = html`<button>download</button>`
     const hr = html`<hr>`
     const resetCameraButton = html`<button>reset camera</button>`
@@ -19,7 +19,8 @@ const buttons = (scope) => {
         }, solids)
 
         links.innerHTML = '';
-        const link = html`<a href="data:application/stl,${encodeURIComponent(str.join(''))}" download="${textName.value}.stl" >${textName.value}.stl</a>`
+        const name = textName.value || scope.paramState?.modelName || 'model';
+        const link = html`<a href="data:application/stl,${encodeURIComponent(str.join(''))}" download="${name}.stl" >${name}.stl</a>`
         links.appendChild(link)
     }
 
@@ -33,6 +34,7 @@ const buttons = (scope) => {
     d.appendChild(labelName)
     d.appendChild(textName)
     d.appendChild(button)
+    d.appendChild(html`<br><span style="font-size: .7rem; color: grey">Retrieved from parameter 'modelName' by default</span>`)
     d.appendChild(hr)
     d.appendChild(resetCameraButton)
     d.appendChild(links)
