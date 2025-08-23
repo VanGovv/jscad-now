@@ -1,7 +1,7 @@
-const jscadModeling = require('@jscad/modeling')
+import * as jscadModeling from "@jscad/modeling"
 
 function main(parameters) {
-    let { scale, size } = parameters;
+    let { scale, size }: {scale: any, size: any} = parameters;
     const { colorize } = jscadModeling.colors
     const { cube, cuboid, line, sphere, star } = jscadModeling.primitives
     const { intersect, subtract } = jscadModeling.booleans
@@ -31,4 +31,4 @@ function getParameterDefinitions() {
     ];
 }
 
-module.exports = { main, getParameterDefinitions }
+export { main, getParameterDefinitions }
